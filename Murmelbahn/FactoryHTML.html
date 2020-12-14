@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Hier beginnt der Administrative Teil der Seite -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="ByronStar">
+
+  <title>Programmiersprachen - Murmelbahn</title>
+
+  <!-- Velocity -->
+  <!--
+    <script type="text/javascript" src="lib/velocity.min.js"></script>
+    -->
+
+  <!-- p5js -->
+  <script src="lib/p5.min.js" type="text/javascript"></script>
+  <script src="lib/p5.sound.min.js" type="text/javascript"></script>
+  <!--
+    <script src="lib/p5.dom.min.js" type="text/javascript"></script>
+    -->
+
+  <!-- matter.js -->
+  <script type="text/javascript" src="lib/decomp.min.js"></script>
+  <script type="text/javascript" src="lib/pathseg.js"></script>
+  <script type="text/javascript" src="lib/matter.js"></script>
+
+  <!-- Hausaufgaben Verwaltung -->
+  <script type="text/javascript" src="lib/homeworks.js"></script>
+
+  <!-- Javascript Programm in separater Datei -->
+  <script type="text/javascript" src="js/progsp_8c.js" id="homework"></script>
+
+  <!-- Styles in separater Datei -->
+  <link rel="stylesheet" href="css/progsp.css">
+
+  <!-- Inline Styles -->
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    canvas {
+      vertical-align: top;
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="svg" style="display: none" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <path id="puzzle" d="M92.556,359c16.79,0,22.473-9.002,29.312-15.825C135.833,329.159,153,335.128,153,357.71V462h104.29  c22.582,0,28.551-17.167,14.544-31.131c-6.832-6.84-15.834-12.523-15.834-29.321C256,382.889,275.028,359,307.5,359  s51.5,23.889,51.5,42.548c0,16.798-9.002,22.481-15.825,29.321C329.159,444.833,335.128,462,357.71,462H462V357.71  c0-22.582-17.167-28.551-31.131-14.535c-6.84,6.823-12.523,15.825-29.321,15.825C382.889,359,359,339.972,359,307.5  s23.889-51.5,42.548-51.5c16.798,0,22.481,9.002,29.321,15.834C444.833,285.841,462,279.872,462,257.29V153H357.71  c-22.582,0-28.551-17.167-14.535-31.131c6.823-6.84,15.825-12.523,15.825-29.312C359,73.889,339.972,50,307.5,50  S256,73.889,256,92.556c0,16.79,9.002,22.473,15.834,29.312C285.841,135.833,279.872,153,257.29,153H153v104.29  c0,22.582-17.167,28.551-31.131,14.544C115.029,265.002,109.346,256,92.556,256C73.889,256,50,275.028,50,307.5  S73.889,359,92.556,359z" />
+    <path stroke="#000" id="ramp" d="m3.06976,0.19999c107.95291,416.10158 304.27014,347.79613 450.7851,308.31631c146.51495,-39.47983 123.74487,90.16794 123.74487,90.16794c-22.7215,0.00381 -505.80488,2.49927 -575.59047,-0.24268" fill-opacity="null"
+      stroke-opacity="null" stroke-width="1.5" fill="none" />
+    <path id="bahn" d="m105.5,125c28,101 150,96 149.5,96c98.5,-56 75.5,4 75,4c-26.5,76 58.5,127 58,127c85.5,58 -6.5,78 -13.5,78c-7,0 -277,6 -277.5,6" stroke-width="1.5" stroke="#000" fill="#fff" />
+    <path id="bahn2" d="m116.5,101.5c48,10 7,48 96,70c89,22 128,-109 187,42c59,151 58,-5 248,-6c190,-1 128,-19 -110,74c-238,93 -148,-42 -195,-76c-47,-34 -122,23 -179,-11c-57,-34 -47,-1 -48,-47c-1,-46 -24,-39 -24.5,-39.5" fill-opacity="null"
+      stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff" />
+      <path id = "wolke"  d="M331.76,209.31c10.88-0.05,89.58,0.08,197.85,0.05c0.52,0.03,9.48,0.31,14.28-6.81
+c5.25-7.8,0.31-16.78-0.17-17.62c-0.77-1.34-3.28-5.76-8.18-7.34c-6.41-2.06-10.73,2.34-13.49-0.09c-2.29-2.02,0.58-5.18-1.73-11.39
+c-0.45-1.21-2.33-5.85-7.06-8.79c-1.95-1.22-3.68-1.69-5.2-2.1c-6.82-1.84-9.17,0.61-12.26-1.11c-3.42-1.91-2.26-5.87-5.58-13.22
+c-2.64-5.85-6.27-9.74-7.7-11.12c-8.03-7.76-19.87-7.22-26.44-6.99c-5.05,0.18-15.34,0.54-25,7.69
+c-7.19,5.32-10.67,11.93-12.38,15.27c-2.02,3.94-4.98,9.71-5.44,17.6c-0.21,3.62,0.18,6.38-0.8,6.7c-1.83,0.6-4.18-8.89-11.49-13.4
+c-7.4-4.57-15.9-2.12-16.6-1.91c-4.8,1.42-7.92,4.32-9.16,5.49c-5.06,4.8-3.8,7.74-7.26,9.76c-5.73,3.35-11.06-3.6-17.52-0.75
+c-6.23,2.75-4.82,10.79-10.76,12.72c-5.16,1.68-7.92-3.86-14.14-2.69c-5.82,1.09-11.73,7.51-11.61,14.81
+c0.12,7.5,6.54,11.88,7.4,12.45C325.66,209.35,330.31,209.32,331.76,209.31z"/>
+  </svg>
+</body>
+
+</html>
