@@ -53,6 +53,13 @@ class Ball {
     this.body = Matter.Bodies.circle(this.x, this.y, this.size / 2, options)
     Matter.World.add(engine.world, [this.body])
   }
+
+  // update(ball) {
+  //   if (this.attrs.force) {
+  //     Matter.Body.applyForce(ball, ball.position, this.attrs.force)
+  //   }
+  // }
+
   show() {
     fill(this.color)
     drawBody(this.body)
@@ -61,20 +68,56 @@ class Ball {
 function setup() {
   engine = Matter.Engine.create()
   Matter.Events.on(engine, 'collisionActive', function(event) {
-      const pairs = event.pairs[0];
-      const bodyA = pairs.bodyA;
-      const bodyB = pairs.bodyB;
-      if (bodyA.label === "band" || bodyB.label === "band") {
-      console.log("treffer");
-      if (bodyA.label === "band") {
-        Matter.Body.applyForce (bodyB, {x: this.x, y: this.y}, {x: this.x+2, y: this.y})
-      } else {
-        Matter.Body.applyForce (bodyA, {x: this.x, y: this.y}, {x: this.x+1, y: this.y})
+    console.log("collision")
+    var pairs = event.pairs
+    pairs.forEach((pair, i) => {
+      if (pair.bodyA.label === "band") {
+        collide(pair.bodyA, pair.bodyB)
       }
-      // Matter.Body.applyForce(ball.position, { x: 0.00, y: 0 })
-      //Hier//
+      if (pair.bodyB.label === "band") {
+        collide(pair.bodyB, pair.bodyA)
       }
-    });
+    })
+    // check for collision between Block and ball
+    function collide(bodyBlock, bodyBall) {
+      // check if bodyBlock is really a body in a Block class
+
+        // remember the collision for processing in 'beforeUpdate'
+        collisions.push({
+          hit: bodyBlock.plugin.block,
+          ball: bodyBall
+        })
+
+    }
+  })
+
+  Matter.Events.on(engine, 'beforeUpdate', function(event) {
+    // process collisions at the right time
+console.log("treffer")
+    collisions.forEach((collision, i) => {
+        // "inform" blocks: got hit by a ball
+        // collision.hit.update(collision.ball)
+        Matter.Body.applyForce(collision.ball, collision.ball.position, {x: 0.0001, y: 0})
+  });
+
+  collisions = []
+})
+
+  // Matter.Events.on(engine, 'collisionActive', function(event) {
+  //     const pairs = event.pairs[0];
+  //     const bodyA = pairs.bodyA;
+  //     const bodyB = pairs.bodyB;
+  //     if (bodyA.label === "band" || bodyB.label === "band") {
+  //     console.log("treffer");
+  //     if (bodyA.label === "band") {
+  //       Matter.Body.applyForce (bodyB, {x: this.x, y: this.y}, {x: this.x+2, y: this.y})
+  //     } else {
+  //       Matter.Body.applyForce (bodyA, {x: this.x, y: this.y}, {x: this.x+1, y: this.y})
+  //     }
+  //     // Matter.Body.applyForce(ball.position, { x: 0.00, y: 0 })
+  //     //Hier//
+  //     }
+  //   });
 
   let canvas = createCanvas(windowWidth, windowHeight)
   kreise.push(new Kreis({ x: 500, y: 500, color: `black`, size: 40}, { isStatic: true, }))
@@ -113,6 +156,7 @@ function setup() {
   // })
   Matter.Engine.run(engine)
 }
+
 function draw() {
   background(255, 50);
   blocks.forEach((block, i) => {
