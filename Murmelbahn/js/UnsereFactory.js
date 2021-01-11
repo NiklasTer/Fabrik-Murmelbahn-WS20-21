@@ -72,6 +72,7 @@ function setup() {
         Matter.Body.applyForce (bodyA, {x: this.x, y: this.y}, {x: this.x+1, y: this.y})
       }
       // Matter.Body.applyForce(ball.position, { x: 0.00, y: 0 })
+      //Hier//
       }
     });
 
