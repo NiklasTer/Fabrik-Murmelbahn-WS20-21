@@ -5,6 +5,7 @@ let kreise = []
 let balls= []
 let collisions = []
 let band
+let bandrichtung = 0.0003
 class Block {
   constructor(attrs, options) {
     this.x = attrs.x
@@ -97,7 +98,7 @@ console.log("treffer")
     collisions.forEach((collision, i) => {
         // "inform" blocks: got hit by a ball
         // collision.hit.update(collision.ball)
-        Matter.Body.applyForce(collision.ball, collision.ball.position, {x: 0.0001, y: 0})
+        Matter.Body.applyForce(collision.ball, collision.ball.position, {x: bandrichtung , y: 0})
   });
 
   collisions = []
@@ -191,12 +192,10 @@ function drawVertices(vertices) {
 }
 function keyPressed() {
   switch (keyCode) {
-    case LEFT_ARROW:
-      console.log('L')
+    case 32:
+      console.log('Leertaste')
+      bandrichtung = bandrichtung *-1
       break;
-      case RIGHT_ARROW:
-        console.log('R')
-        break;
     default:
       console.log("KeyCode ist: " + keyCode)
   }
