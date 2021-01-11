@@ -3,8 +3,6 @@ Homeworks.aufgabe = 8;
 // Example is based on examples from: http://brm.io/matter-js/, https://github.com/shiffman/p5-matter
 // Benno Stäbler: kopiert vom 02-mouse Beispiel, erweitert um komplexe Bodies und in die bekannte Struktur gebracht
 // Hier ist alles mit Classes codiert
-// Hier ist alles Gut!!
-// Test
 let engine
 let polySynth
 let mouseConstraint
