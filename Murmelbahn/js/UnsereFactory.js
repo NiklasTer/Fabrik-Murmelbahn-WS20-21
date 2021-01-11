@@ -109,12 +109,12 @@ console.log("treffer")
   collisions = []
 
 
-console.log("sensor")
-  sensors.forEach((sensor, i) => {
+// console.log("sensor")
+//   sensors.forEach((sensor, i) => {
       //Matter.Body.applyForce(sensor.ball, sensor.ball.position, {x: bandrichtung , y: 0})
-});
-
-  sensors = []
+// });
+//
+//   sensors = []
 })
 
   // Matter.Events.on(engine, 'collisionActive', function(event) {
