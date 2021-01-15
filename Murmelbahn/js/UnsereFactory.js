@@ -7,6 +7,9 @@ let collisions = []
 let band
 let bandrichtung = 0.0003
 let sensors = []
+let rundeEcken = 15
+let running = 0
+let running1 = 0
 
 class Block {
   constructor(attrs, options) {
@@ -81,6 +84,19 @@ function setup() {
       }
       if (pair.bodyA.label === "Formänderung" || pair.bodyB.label === "Formänderung") {
         collide(pair.bodyA, pair.bodyA)
+        console.log("Formänderung")
+        Matter.World.remove(engine.world,[pair.bodyA])
+        // Matter.add.add(engine.world, [ball1])
+        // bandrichtung = 0.1
+        running = 2
+      }
+      if (pair.bodyA.label === "Farbänderung" || pair.bodyB.label === "Farbänderung") {
+        collide(pair.bodyA, pair.bodyA)
+        console.log("Farbänderung")
+        Matter.World.remove(engine.world,[pair.bodyA])
+        // Matter.add.add(engine.world, [ball1])
+        // bandrichtung = 0.1
+        running1 = 2
       }
     })
 
@@ -104,7 +120,6 @@ function setup() {
 
   Matter.Events.on(engine, 'beforeUpdate', function(event) {
     // process collisions at the right time
-console.log("treffer")
     collisions.forEach((collision, i) => {
         // "inform" blocks: got hit by a ball
         // collision.hit.update(collision.ball)
@@ -148,9 +163,12 @@ console.log("treffer")
   blocks.push(new Block({ x: 260, y: 260, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band1" }))
   blocks.push(new Block({ x: 800, y: 400, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band2" }))
 
-  ball = new Ball({ x: 400, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius:15}, label: "ball"})
+  ball = new Ball({ x: 400, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius: rundeEcken}, label: "ball"})
+  ball1 = new Ball({x: 1130, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.001, label: "quadrat"})
+  ball2 = new Ball({x: 1230, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.001, label: "quadrat"})
 
-  blocks.push(new Block({ x: 1500, y: 600, w: 400, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
+  blocks.push(new Block({ x: 1100, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
+  blocks.push(new Block({ x: 1200, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
   // blocks.push(new Block({ x: 650, y: 235, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
 
   // // Process collisions - check whether ball hits a Block object
@@ -191,6 +209,8 @@ function draw() {
     block.show()
   });
   ball.show()
+  if (running > 1) {ball1.show(), console.log('true')}
+  if (running1 > 1) {ball2.show(), console.log('true')}
   kreise.forEach((kreis, i) => {
     kreis.show()
   });
