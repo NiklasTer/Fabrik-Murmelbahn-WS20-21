@@ -51,9 +51,14 @@ class Ball {
   constructor(attrs, options) {
     this.x = attrs.x
     this.y = attrs.y
+    this.w = attrs.w
+    this.h = attrs.h
+    this.tl = attrs.tl
+    this.stroke = attrs.stroke
+    this.strokeWeight = attrs.strokeWeight || 0
+    this.fill = attrs.fill
     this.color = attrs.color
-    this.size = attrs.size
-    this.body = Matter.Bodies.circle(this.x, this.y, this.size / 2, options)
+    this.body = Matter.Bodies.rectangle(this.x + this.w / 2, this.y + this.h / 2, this.w, this.h, options)
     Matter.World.add(engine.world, [this.body])
   }
 
@@ -73,6 +78,9 @@ function setup() {
       }
       if (pair.bodyA.label === "band2" || pair.bodyB.label === "band2") {
         collide(pair.bodyA, pair.bodyB)
+      }
+      if (pair.bodyA.label === "Formänderung" || pair.bodyB.label === "Formänderung") {
+        collide(pair.bodyA, pair.bodyA)
       }
     })
 
@@ -131,17 +139,20 @@ console.log("treffer")
   //   });
 
   let canvas = createCanvas(windowWidth, windowHeight)
-  kreise.push(new Kreis({ x: 500, y: 500, color: `black`, size: 40}, { isStatic: true, }))
-  kreise.push(new Kreis({ x: 800, y: 500, color: `black`, size: 40}, { isStatic: true, }))
-  kreise.push(new Kreis({ x: 1100, y: 500, color: `black`, size: 40}, { isStatic: true, }))
-  kreise.push(new Kreis({ x: 1050, y: 640, color: `black`, size: 40}, { isStatic: true, }))
-  kreise.push(new Kreis({ x: 1345, y: 640, color: `black`, size: 40}, { isStatic: true, }))
-  kreise.push(new Kreis({ x: 1640, y: 640, color: `black`, size: 40}, { isStatic: true, }))
-  blocks.push(new Block({ x: 460, y: 460, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band1" }))
-  blocks.push(new Block({ x: 1000, y: 600, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band2" }))
-  ball = new Ball({ x: 600, y: 300, color: 'red', size: 20 }, { isStatic: false, restitution: 0, frictionAir: 0, label: "ball"})
+  kreise.push(new Kreis({ x: 300, y: 300, color: `black`, size: 40}, { isStatic: true, }))
+  kreise.push(new Kreis({ x: 600, y: 300, color: `black`, size: 40}, { isStatic: true, }))
+  kreise.push(new Kreis({ x: 900, y: 300, color: `black`, size: 40}, { isStatic: true, }))
+  kreise.push(new Kreis({ x: 850, y: 440, color: `black`, size: 40}, { isStatic: true, }))
+  kreise.push(new Kreis({ x: 1145, y: 440, color: `black`, size: 40}, { isStatic: true, }))
+  kreise.push(new Kreis({ x: 1440, y: 440, color: `black`, size: 40}, { isStatic: true, }))
+  blocks.push(new Block({ x: 260, y: 260, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band1" }))
+  blocks.push(new Block({ x: 800, y: 400, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band2" }))
 
-  // blocks.push(new Block({ x: 850, y: 435, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
+  ball = new Ball({ x: 400, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius:15}, label: "ball"})
+
+  blocks.push(new Block({ x: 1500, y: 600, w: 400, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
+  // blocks.push(new Block({ x: 650, y: 235, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
+
   // // Process collisions - check whether ball hits a Block object
   // Matter.Events.on(engine, 'collisionStart', function(event) {
   //   var pairs = event.pairs
