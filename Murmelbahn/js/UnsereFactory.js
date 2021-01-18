@@ -10,21 +10,50 @@ let sensors = []
 let rundeEcken = 15
 let running = 0
 let running1 = 0
+let img
+
+function preload() {
+  img = loadImage('assets/001.png');
+}
 
 class Block {
-  constructor(attrs, options) {
-    this.x = attrs.x
-    this.y = attrs.y
-    this.w = attrs.w
-    this.h = attrs.h
+  constructor(type, attrs, options) {
+    // this.x = attrs.x
+    // this.y = attrs.y
+    // this.w = attrs.w
+    // this.h = attrs.h
+    // this.tl = attrs.tl
+    // this.stroke = attrs.stroke
+    // this.strokeWeight = attrs.strokeWeight || 0
+    // this.fill = attrs.fill
+    // this.color = attrs.color
+    // this.body = Matter.Bodies.rectangle(this.x + this.w / 2, this.y + this.h / 2, this.w, this.h, options)
+    this.type = type
+    this.attrs = attrs
     this.tl = attrs.tl
     this.stroke = attrs.stroke
     this.strokeWeight = attrs.strokeWeight || 0
     this.fill = attrs.fill
     this.color = attrs.color
-    this.body = Matter.Bodies.rectangle(this.x + this.w / 2, this.y + this.h / 2, this.w, this.h, options)
+    this.options = options
+    this.options.plugin = { block: this, update: this.update }
+    switch (this.type) {
+      case 'rect':
+        this.body = Matter.Bodies.rectangle(attrs.x, attrs.y, attrs.w, attrs.h, this.options)
+        break
+
+      case 'path':
+        let path = document.getElementById(attrs.elem)
+        if (null != path) {
+          this.body = Matter.Bodies.fromVertices(0, 0, Matter.Vertices.scale(Matter.Svg.pathToVertices(path, 10), this.attrs.scale, this.attrs.scale), this.options)
+          Matter.Body.setPosition(this.body, this.attrs)
+        }
+        break
+      }
     Matter.World.add(engine.world, [this.body])
   }
+
+
   show() {
     if (this.color == "none") {
       noFill()
@@ -154,23 +183,26 @@ function setup() {
   //   });
 
   let canvas = createCanvas(windowWidth, windowHeight)
+  //blocks.push(new Block('circle',{ x: 300, y: 300, s:40, color: `black`}, { isStatic: true }))
   kreise.push(new Kreis({ x: 300, y: 300, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 600, y: 300, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 900, y: 300, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 850, y: 440, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 1145, y: 440, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 1440, y: 440, color: `black`, size: 40}, { isStatic: true, }))
-  blocks.push(new Block({ x: 260, y: 260, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band1" }))
-  blocks.push(new Block({ x: 800, y: 400, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band2" }))
+  blocks.push(new Block('rect',{ x: 600, y: 300, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band1" }))
+  blocks.push(new Block('rect',{ x: 1150, y: 440, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band2" }))
 
   ball = new Ball({ x: 400, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius: rundeEcken}, label: "ball"})
   ball1 = new Ball({x: 1130, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.001, label: "quadrat"})
   ball2 = new Ball({x: 1230, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.001, label: "quadrat"})
 
-  blocks.push(new Block({ x: 1100, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
-  blocks.push(new Block({ x: 1200, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
+  blocks.push(new Block('rect',{ x: 1100, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
+  blocks.push(new Block('rect',{ x: 1200, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
   // blocks.push(new Block({ x: 650, y: 235, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
 
+  blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
+  Matter.World.remove(engine.world,['path'])
   // // Process collisions - check whether ball hits a Block object
   // Matter.Events.on(engine, 'collisionStart', function(event) {
   //   var pairs = event.pairs
@@ -214,6 +246,7 @@ function draw() {
   kreise.forEach((kreis, i) => {
     kreis.show()
   });
+  image(img, 300, 240);
 }
 function drawBody(body) {
   if (body.parts && body.parts.length > 1) {
