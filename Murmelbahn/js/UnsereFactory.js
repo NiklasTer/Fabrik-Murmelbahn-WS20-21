@@ -11,9 +11,11 @@ let rundeEcken = 15
 let running = 0
 let running1 = 0
 let img
+let img1
 
 function preload() {
   img = loadImage('assets/001.png');
+  img1 = loadImage('assets/Holzbox.png');
 }
 
 class Block {
@@ -183,6 +185,7 @@ function setup() {
   //   });
 
   let canvas = createCanvas(windowWidth, windowHeight)
+  /* Förderband */
   //blocks.push(new Block('circle',{ x: 300, y: 300, s:40, color: `black`}, { isStatic: true }))
   kreise.push(new Kreis({ x: 300, y: 300, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 600, y: 300, color: `black`, size: 40}, { isStatic: true, }))
@@ -193,13 +196,15 @@ function setup() {
   blocks.push(new Block('rect',{ x: 600, y: 300, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band1" }))
   blocks.push(new Block('rect',{ x: 1150, y: 440, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band2" }))
 
+  /* Bälle */
   ball = new Ball({ x: 400, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius: rundeEcken}, label: "ball"})
-  ball1 = new Ball({x: 1130, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.001, label: "quadrat"})
-  ball2 = new Ball({x: 1230, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.001, label: "quadrat"})
+  ball1 = new Ball({x: 1130, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.0005, label: "quadrat"})
+  ball2 = new Ball({x: 1270, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.0005, label: "quadrat"})
 
+  /* Form- und Farbänderung */
   blocks.push(new Block('rect',{ x: 1100, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
-  blocks.push(new Block('rect',{ x: 1200, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
-  // blocks.push(new Block({ x: 650, y: 235, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
+  blocks.push(new Block('rect',{ x: 1250, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
+  // blocks.push(new Block({ x: 650, y: 235
 
   blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
   blocks.push(new Block('path', { x: 1550, y: 600, elem: 'kiste', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 }))
@@ -250,7 +255,10 @@ function draw() {
     kreis.show()
   });
   image(img, 300, 240);
+  image(img1, 1480, 500);
+  img1.resize(120,120)
 }
+
 function drawBody(body) {
   if (body.parts && body.parts.length > 1) {
     for (var p = 1; p < body.parts.length; p++) {
