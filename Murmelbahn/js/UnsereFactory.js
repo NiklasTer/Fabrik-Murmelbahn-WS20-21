@@ -113,6 +113,7 @@ function setup() {
         collide(pair.bodyA, pair.bodyB)
       }
       if (pair.bodyA.label === "Formänderung" || pair.bodyB.label === "Formänderung") {
+        bandrichtung = 0.0022
         collide(pair.bodyA, pair.bodyA)
         console.log("Formänderung")
         Matter.World.remove(engine.world,[pair.bodyA])
@@ -195,11 +196,11 @@ function setup() {
   blocks.push(new Block('rect',{ x: 1150, y: 440, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band2" }))
 
   ball = new Ball({ x: 400, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius: rundeEcken}, label: "ball"})
-  ball1 = new Ball({x: 1130, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.0005, label: "quadrat"})
-  ball2 = new Ball({x: 1270, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.0005, label: "quadrat"})
+  ball1 = new Ball({x: 1180, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
+  ball2 = new Ball({x: 1300, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
 
   blocks.push(new Block('rect',{ x: 1100, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
-  blocks.push(new Block('rect',{ x: 1250, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
+  blocks.push(new Block('rect',{ x: 1280, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
   // blocks.push(new Block({ x: 650, y: 235, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
 
   blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
