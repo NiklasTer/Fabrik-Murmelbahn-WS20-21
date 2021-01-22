@@ -203,7 +203,7 @@ function setup() {
   blocks.push(new Block('rect',{ x: 1280, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
   // blocks.push(new Block({ x: 650, y: 235, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
 
-  blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
+  //blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
   blocks.push(new Block('path', { x: 1550, y: 600, elem: 'kiste', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 }))
   // Matter.World.remove(engine.world,['path'])
   // Matter.World.remove(engine.world,['path'])
@@ -236,6 +236,9 @@ function setup() {
   //   });
   //   collisions = []
   // })
+
+  // drawSprite(ball, img1);
+  // function draw () {}
   Matter.Engine.run(engine)
 }
 
@@ -250,9 +253,11 @@ function draw() {
   kreise.forEach((kreis, i) => {
     kreis.show()
   });
-  image(img, 300, 240);
+  //image(img, 300, 240);
   image(img1, 1480, 500);
   img1.resize(120,120)
+
+  // drawSprite(ball, img1);
   // drawSprite (ball,ballImg,scalefish)
 }
 function drawBody(body) {
@@ -270,6 +275,17 @@ function drawBody(body) {
     }
   }
 }
+
+// function drawSprite(body, img) {
+//   const pos = body.position;
+//   const angle = body.angle;
+//   push();
+//   translate(pos.x, pos.y);
+//   rotate(angle);
+//   imageMode(CENTER);
+//   image(img, 0, 0);
+//   pop();
+// }
 function drawVertices(vertices) {
   beginShape()
   for (var i = 0; i < vertices.length; i++) {
