@@ -12,6 +12,7 @@ let running = 0
 let running1 = 0
 let img
 let img1
+let constraint
 function preload() {
   img = loadImage('assets/001.png');
   img1 = loadImage('assets/Holzbox.png');
@@ -108,9 +109,11 @@ function setup() {
     pairs.forEach((pair, i) => {
       if (pair.bodyA.label === "band1" || pair.bodyB.label === "band1") {
         collide(pair.bodyA, pair.bodyB)
+        console.log("1")
       }
       if (pair.bodyA.label === "band2" || pair.bodyB.label === "band2") {
         collide(pair.bodyA, pair.bodyB)
+        console.log("2")
       }
       if (pair.bodyA.label === "Formänderung" || pair.bodyB.label === "Formänderung") {
         bandrichtung = 0.0022
@@ -186,7 +189,7 @@ function setup() {
 
   let canvas = createCanvas(windowWidth, windowHeight)
   //blocks.push(new Block('circle',{ x: 300, y: 300, s:40, color: `black`}, { isStatic: true }))
-  kreise.push(new Kreis({ x: 300, y: 300, color: `black`, size: 40}, { isStatic: true, }))
+  //kreise.push(new Kreis({ x: 300, y: 300, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 600, y: 300, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 900, y: 300, color: `black`, size: 40}, { isStatic: true, }))
   kreise.push(new Kreis({ x: 850, y: 440, color: `black`, size: 40}, { isStatic: true, }))
@@ -196,8 +199,8 @@ function setup() {
   blocks.push(new Block('rect',{ x: 1150, y: 440, w: 680, h: 80, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius: 40} ,label: "band2" }))
 
   ball = new Ball({ x: 400, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius: rundeEcken}, label: "ball"})
-  ball1 = new Ball({x: 1180, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
-  ball2 = new Ball({x: 1300, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
+  //ball1 = new Ball({x: 1180, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
+  //ball2 = new Ball({x: 1300, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
 
   blocks.push(new Block('rect',{ x: 1100, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
   blocks.push(new Block('rect',{ x: 1280, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
@@ -205,6 +208,18 @@ function setup() {
 
   //blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
   blocks.push(new Block('path', { x: 1550, y: 600, elem: 'kiste', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 }))
+  blocks.push(new Block('path', { x: 350, y: 300, elem: 'zahnrad', scale: 0.3, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: false, frictionAir: 0.0 }))
+  //blocks.push(new Block('path', { x: 500, y: 300, elem: 'band', scale: 1.2, color: 'black'}, { isStatic: true, restitution: 0, frictionAir: 0.0, label: "band1" }))
+
+let body = blocks[4].body
+constraint = Matter.Constraint.create({
+        bodyA: body,
+        pointB: { x: body.position.x , y: body.position.y }
+      });
+      Matter.World.add(engine.world, [constraint]);
+
+      Matter.Body.applyForce(body,{x: 0, y: 0}, {x: 0.00002, y: 0.0})
+
   //blocks.push(new Block('path', { x: 150, y: 200, elem: 'zahnrad', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 }))
   // Matter.World.remove(engine.world,['path'])
   // Matter.World.remove(engine.world,['path'])
