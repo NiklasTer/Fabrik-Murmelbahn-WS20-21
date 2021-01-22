@@ -205,6 +205,7 @@ function setup() {
 
   //blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
   blocks.push(new Block('path', { x: 1550, y: 600, elem: 'kiste', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 }))
+  //blocks.push(new Block('path', { x: 150, y: 200, elem: 'zahnrad', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 }))
   // Matter.World.remove(engine.world,['path'])
   // Matter.World.remove(engine.world,['path'])
   // // Process collisions - check whether ball hits a Block object
