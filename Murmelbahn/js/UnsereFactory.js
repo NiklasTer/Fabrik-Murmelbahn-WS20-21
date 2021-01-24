@@ -187,108 +187,123 @@ function setup() {
   blocks.push(new Block('rect',{ x: 1910, y: 400, w: 10, h: 200, tl: 20, strokeWeight: 5, color: `white` }, {isStatic: true, angle:  PI/12, restitution: 0 ,}))
   blocks.push(new Block('rect',{ x: 30, y: 810, w: 10, h: 50, tl: 20, strokeWeight: 5, color: `white` }, {isStatic: true, angle:  - PI/12, restitution: 0 ,}))
 
-  ball = new Ball({
-    x: 100,
-    y: 100,
-    w: 30,
-    h: 30,
-    tl: 20,
-    strokeWeight: 5,
-    color: 'red'
-  }, {
-    isStatic: false,
-    restitution: 0,
-    frictionAir: 0,
-    chamfer: {
-      radius: rundeEcken
-    },
-    label: "ball"
-  })
-  ball1 = new Ball({
-    x: 940,
-    y: 300,
-    w: 30,
-    h: 30,
-    tl: 20,
-    strokeWeight: 5,
-    color: 'red'
-  }, {
-    isStatic: false,
-    restitution: 0,
-    frictionAir: 0,
-    density: 0.002,
-    label: "quadrat"
-  })
-  ball2 = new Ball({
-    x: 1400,
-    y: 605,
-    w: 30,
-    h: 30,
-    tl: 20,
-    strokeWeight: 5,
-    color: 'green'
-  }, {
-    isStatic: false,
-    restitution: 0,
-    frictionAir: 0,
-    density: 0.003,
-    label: "quadrat"
-  })
-  ball3 = new Ball({
-    x: 320,
-    y: 800,
-    w: 30,
-    h: 30,
-    tl: 20,
-    strokeWeight: 5,
-    color: 'red'
-  }, {
-    isStatic: false,
-    restitution: 0,
-    frictionAir: 0,
-    chamfer: {
-      radius: rundeEcken
-    },
-    label: "vieleck"
-  })
+  // ball = new Ball({
+  //   x: 100,
+  //   y: 100,
+  //   w: 30,
+  //   h: 30,
+  //   tl: 20,
+  //   strokeWeight: 5,
+  //   color: 'red'
+  // }, {
+  //   isStatic: false,
+  //   restitution: 0,
+  //   frictionAir: 0,
+  //   chamfer: {
+  //     radius: rundeEcken
+  //   },
+  //   label: "ball"
+  // })
+  // ball1 = new Ball({
+  //   x: 940,
+  //   y: 300,
+  //   w: 30,
+  //   h: 30,
+  //   tl: 20,
+  //   strokeWeight: 5,
+  //   color: 'red'
+  // }, {
+  //   isStatic: false,
+  //   restitution: 0,
+  //   frictionAir: 0,
+  //   density: 0.002,
+  //   label: "quadrat"
+  // })
+  // ball2 = new Ball({
+  //   x: 1400,
+  //   y: 605,
+  //   w: 30,
+  //   h: 30,
+  //   tl: 20,
+  //   strokeWeight: 5,
+  //   color: 'green'
+  // }, {
+  //   isStatic: false,
+  //   restitution: 0,
+  //   frictionAir: 0,
+  //   density: 0.003,
+  //   label: "quadrat"
+  // })
+  // ball3 = new Ball({
+  //   x: 320,
+  //   y: 800,
+  //   w: 30,
+  //   h: 30,
+  //   tl: 20,
+  //   strokeWeight: 5,
+  //   color: 'red'
+  // }, {
+  //   isStatic: false,
+  //   restitution: 0,
+  //   frictionAir: 0,
+  //   chamfer: {
+  //     radius: rundeEcken
+  //   },
+  //   label: "vieleck"
+  // })
+  //
+  //
+  // blocks.push(new Block('rect', {
+  //   x: 900,
+  //   y: 300,
+  //   w: 10,
+  //   h: 10,
+  //   strokeWeight: 5,
+  //   color: 'black'
+  // }, {
+  //   isStatic: true,
+  //   restitution: 0,
+  //   label: "Formänderung"
+  // }))
+  // blocks.push(new Block('rect', {
+  //   x: 1780,
+  //   y: 655,
+  //   w: 10,
+  //   h: 10,
+  //   strokeWeight: 5,
+  //   color: 'black'
+  // }, {
+  //   isStatic: true,
+  //   restitution: 0,
+  //   label: "Farbänderung"
+  // }))
+  // blocks.push(new Block('rect', {
+  //   x: 300,
+  //   y: 820,
+  //   w: 10,
+  //   h: 10,
+  //   strokeWeight: 5,
+  //   color: 'black'
+  // }, {
+  //   isStatic: true,
+  //   restitution: 0,
+  //   label: "Formänderung1"
+  // }))
+
+  /*Bälle*/
+    ball = new Ball({ x: 200, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius: rundeEcken}, label: "ball"})
+    ball1 = new Ball({x: 1100, y: 260, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
+    ball2 = new Ball({x: 520, y: 470, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
+
+  /*Farb- und Formänderung*/
+    blocks.push(new Block('rect',{ x: 1000, y: 260, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
+    blocks.push(new Block('rect',{ x: 570, y: 470, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
+
+    blocks.push(new Block('rect',{ x: 555, y: 470, w: 5, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0}))
+    // blocks.push(new Block({ x: 650, y: 235, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
 
 
-  blocks.push(new Block('rect', {
-    x: 900,
-    y: 300,
-    w: 10,
-    h: 10,
-    strokeWeight: 5,
-    color: 'black'
-  }, {
-    isStatic: true,
-    restitution: 0,
-    label: "Formänderung"
-  }))
-  blocks.push(new Block('rect', {
-    x: 1780,
-    y: 655,
-    w: 10,
-    h: 10,
-    strokeWeight: 5,
-    color: 'black'
-  }, {
-    isStatic: true,
-    restitution: 0,
-    label: "Farbänderung"
-  }))
-  blocks.push(new Block('rect', {
-    x: 300,
-    y: 820,
-    w: 10,
-    h: 10,
-    strokeWeight: 5,
-    color: 'black'
-  }, {
-    isStatic: true,
-    restitution: 0,
-    label: "Formänderung1"
-  }))
+
 
   //blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
   // blocks.push(new Block('path', { x: 1550, y: 600, elem: 'kiste', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 }))
