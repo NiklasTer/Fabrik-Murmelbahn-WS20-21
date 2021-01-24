@@ -116,7 +116,7 @@ function setup() {
         console.log("2")
       }
       if (pair.bodyA.label === "Formänderung" || pair.bodyB.label === "Formänderung") {
-        bandrichtung = 0.0022
+        bandrichtung = 0.0032
         collide(pair.bodyA, pair.bodyA)
         console.log("Formänderung")
         Matter.World.remove(engine.world,[pair.bodyA])
@@ -190,40 +190,60 @@ function setup() {
   let canvas = createCanvas(1920, 1080)
 
   //blocks.push(new Block('circle',{ x: 300, y: 300, s:40, color: `black`}, { isStatic: true }))
-  // kreise.push(new Kreis({ x: 90, y: 410, color: `black`, size: 40}, { isStatic: true, }))
-  // kreise.push(new Kreis({ x: 362, y: 310, color: `black`, size: 40}, { isStatic: true, }))
-  // kreise.push(new Kreis({ x: 650, y: 190, color: `black`, size: 40}, { isStatic: true, }))
-  // kreise.push(new Kreis({ x: 750, y: 340, color: `black`, size: 40}, { isStatic: true, }))
-  // kreise.push(new Kreis({ x: 1045, y: 340, color: `black`, size: 40}, { isStatic: true, }))
-  // kreise.push(new Kreis({ x: 1340, y: 340, color: `black`, size: 40}, { isStatic: true, }))
+
+
 // Erste Etage
-blocks.push(new Block('rect',{ x: 340, y: 300, w: 680, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , angle: - PI/8, chamfer:{radius:20} ,label: "band1" }))
-  blocks.push(new Block('rect',{ x: 1010, y: 340, w: 680, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius:20} ,label: "band1" }))
-  blocks.push(new Block('rect',{ x: 1610, y: 400, w: 400, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 ,angle: - PI/8, chamfer:{radius:20} ,label: "band1" }))
+  blocks.push(new Block('rect',{ x: 340, y: 300, w: 680, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , angle: - PI/8, chamfer:{radius:20} ,label: "band1" }))
+      kreise.push(new Kreis({ x: 45, y: 422, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 350, y: 296, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 635, y: 178, color: `black`, size: 25}, { isStatic: true, }))
+  blocks.push(new Block('rect',{ x: 1010, y: 300, w: 680, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius:20} ,label: "band1" }))
+      kreise.push(new Kreis({ x: 691, y: 300, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 1010, y: 300, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 1329, y: 300, color: `black`, size: 25}, { isStatic: true, }))
+  blocks.push(new Block('rect',{ x: 1600, y: 400, w: 400, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 ,angle: - PI/8, chamfer:{radius:20} ,label: "band1" }))
+      kreise.push(new Kreis({ x: 1435, y: 469, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 1766, y: 331, color: `black`, size: 25}, { isStatic: true, }))
+
 // zweite Etage
   blocks.push(new Block('rect',{ x: 1570, y: 700, w: 680, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius:20} ,label: "band1" }))
-  blocks.push(new Block('rect',{ x: 1910, y: 400, w: 10, h: 200, tl: 20, strokeWeight: 5, color: `white` }, {isStatic: true, angle:  PI/12, restitution: 0 ,}))
+      kreise.push(new Kreis({ x: 1251, y: 700, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 1570, y: 700, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 1889, y: 700, color: `black`, size: 25}, { isStatic: true, }))
   blocks.push(new Block('rect',{ x: 970, y: 610, w: 550, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , angle:  PI/06, chamfer:{radius:20} ,label: "band1" }))
+      kreise.push(new Kreis({ x: 750, y: 483, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 972, y: 612, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 1190, y: 737, color: `black`, size: 25}, { isStatic: true, }))
   blocks.push(new Block('rect',{ x: 500, y: 510, w: 400, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius:20} ,label: "band1" }))
+      kreise.push(new Kreis({ x: 322, y: 510, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 678, y: 510, color: `black`, size: 25}, { isStatic: true, }))
 
-  //dritte Etage
+//dritte Etage
   blocks.push(new Block('rect',{ x: 370, y: 860, w: 680, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius:20} ,label: "band1" }))
+      kreise.push(new Kreis({ x: 51, y: 860, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 370, y: 860, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 689, y: 860, color: `black`, size: 25}, { isStatic: true, }))
+
+//vierte Etage
+  blocks.push(new Block('rect',{ x: 1040, y: 950, w: 680, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius:20} ,label: "band1" }))
+      kreise.push(new Kreis({ x: 721, y: 950, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 1040, y: 950, color: `black`, size: 25}, { isStatic: true, }))
+      kreise.push(new Kreis({ x: 1359, y: 950, color: `black`, size: 25}, { isStatic: true, }))
+
+/* Abprallbalken */
+  blocks.push(new Block('rect',{ x: 1910, y: 400, w: 10, h: 200, tl: 20, strokeWeight: 5, color: `white` }, {isStatic: true, angle:  PI/12, restitution: 0 ,}))
   blocks.push(new Block('rect',{ x: 30, y: 810, w: 10, h: 50, tl: 20, strokeWeight: 5, color: `white` }, {isStatic: true, angle:  - PI/12, restitution: 0 ,}))
 
-  //vierte Etage
-  blocks.push(new Block('rect',{ x: 1040, y: 950, w: 680, h:40, tl: 20, strokeWeight: 5, color: `none` }, {isStatic: true, restitution: 0 , chamfer:{radius:20} ,label: "band1" }))
-
-
-
-
-
+/*Bälle*/
   ball = new Ball({ x: 200, y: 100, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red' }, { isStatic: false, restitution: 0, frictionAir: 0, chamfer:{radius: rundeEcken}, label: "ball"})
-  //ball1 = new Ball({x: 1180, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
-  //ball2 = new Ball({x: 1300, y: 380, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
+  ball1 = new Ball({x: 1100, y: 260, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'red'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
+  ball2 = new Ball({x: 520, y: 470, w: 30, h: 30, tl: 20, strokeWeight: 5, color: 'green'}, { isStatic: false, restitution: 0, frictionAir: 0, density: 0.003, label: "quadrat"})
 
+/*Farb- und Formänderung*/
+  blocks.push(new Block('rect',{ x: 1000, y: 260, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
+  blocks.push(new Block('rect',{ x: 570, y: 470, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
 
-  blocks.push(new Block('rect',{ x: 1100, y: 180, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Formänderung"}))
-  blocks.push(new Block('rect',{ x: 1280, y: 380, w: 10, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0, label: "Farbänderung"}))
+  blocks.push(new Block('rect',{ x: 555, y: 470, w: 5, h: 10, strokeWeight: 5, color: 'black'}, {isStatic: true, restitution: 0}))
   // blocks.push(new Block({ x: 650, y: 235, w: 10, h: 10, tl: 20, strokeWeight: 5, color: `black` }, {isStatic: true, restitution: 0, label: "sensor"}))
 
   //blocks.push(new Block('path', { x: 1500, y: 850, elem: 'wolke', scale: 1.0, color: 'red', force: { x: 0.0, y: -1.0 } }, { isStatic: true, friction: 0.0 }))
