@@ -11,11 +11,14 @@ let running1 = 0
 let img
 let img1
 let angleGear = 0
+let imgChange = 0
 //let constraint
 function preload() {
   //img = loadImage('assets/001.png');
   img1 = loadImage('assets/Holzbox.png');
   img2 = loadImage('assets/Perle.png');
+  img3 = loadImage('assets/Holzbox_Deckel.png')
+  img4 = loadImage('assets/Holzbox-end.png')
 }
 
 class Block {
@@ -136,6 +139,7 @@ function setup() {
       console.log("Deckel")
       Matter.World.remove(engine.world, [pair.bodyA])
       running1 = 2
+      imgChange = 2
     }
   })
 
@@ -498,13 +502,26 @@ function draw() {
   kreise.forEach((kreis, i) => {
     kreis.show()
   });
-  // image(img1, 1441, 942);
-  // img1.resize(120,120)
+  kiste.show()
+
+  if(imgChange > 1){
+    image(img4, 1441, 942);
+    img4.resize(120,120)
+  } else{
+    image(img1, 1441, 942);
+    img1.resize(120,120)
+  }
+
+
+
+
   drawSprite(ball.body, img2);
   img2.resize(32,32)
-  drawSprite(kiste.body, img1);
-  img1.resize(130,130)
- 
+
+  drawSprite(deckel.body, img3);
+  img3.resize(130,40)
+
+
 
 }
 
