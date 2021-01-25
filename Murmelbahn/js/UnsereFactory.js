@@ -10,6 +10,7 @@ let running = 0
 let running1 = 0
 let img
 let img1
+let angleGear = 0
 //let constraint
 function preload() {
   //img = loadImage('assets/001.png');
@@ -467,8 +468,7 @@ blocks.push(new Block('rect', {
   label: "Stopper"
 }))
 
-
-blocks.push(new Block('path', { x: 1500, y: 1020, elem: 'kiste', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 }))
+kiste = new Block('path', { x: 1500, y: 1020, elem: 'kiste', scale: 1.0, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: true, friction: 0.0 })
   // blocks.push(new Block('path', { x: 350, y: 300, elem: 'zahnrad', scale: 0.3, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: false, frictionAir: 0.0 }))
   //blocks.push(new Block('path', { x: 500, y: 300, elem: 'band', scale: 1.2, color: 'black'}, { isStatic: true, restitution: 0, frictionAir: 0.0, label: "band1" }))
 
@@ -502,6 +502,10 @@ function draw() {
   // img1.resize(120,120)
   drawSprite(ball.body, img2);
   img2.resize(32,32)
+  drawSprite(kiste.body, img1);
+  img1.resize(130,130)
+ 
+
 }
 
 function drawSprite(body, img) {
