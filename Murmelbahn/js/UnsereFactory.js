@@ -188,22 +188,22 @@ function setup() {
     },
     label: "band1"
   }))
-  kreise.push(new Kreis({
-    x: 350,
-    y: 296,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 635,
-    y: 178,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
+  // kreise.push(new Kreis({
+  //   x: 350,
+  //   y: 296,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 635,
+  //   y: 178,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
   blocks.push(new Block('rect', {
     x: 1010,
     y: 300,
@@ -220,30 +220,30 @@ function setup() {
     },
     label: "band1"
   }))
-  kreise.push(new Kreis({
-    x: 691,
-    y: 300,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 1010,
-    y: 300,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 1329,
-    y: 300,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
+  // kreise.push(new Kreis({
+  //   x: 691,
+  //   y: 300,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 1010,
+  //   y: 300,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 1329,
+  //   y: 300,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
   blocks.push(new Block('rect', {
     x: 1600,
     y: 400,
@@ -261,22 +261,22 @@ function setup() {
     },
     label: "band1"
   }))
-  kreise.push(new Kreis({
-    x: 1435,
-    y: 469,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 1766,
-    y: 331,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
+  // kreise.push(new Kreis({
+  //   x: 1435,
+  //   y: 469,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 1766,
+  //   y: 331,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
 
   // zweite Etage
   blocks.push(new Block('rect', {
@@ -295,30 +295,30 @@ function setup() {
     },
     label: "band1"
   }))
-  kreise.push(new Kreis({
-    x: 1251,
-    y: 700,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 1570,
-    y: 700,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 1889,
-    y: 700,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
+  // kreise.push(new Kreis({
+  //   x: 1251,
+  //   y: 700,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 1570,
+  //   y: 700,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 1889,
+  //   y: 700,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
   blocks.push(new Block('rect', {
     x: 970,
     y: 610,
@@ -336,29 +336,29 @@ function setup() {
     },
     label: "band1"
   }))
-  kreise.push(new Kreis({
-    x: 750,
-    y: 483,
-    color: `black`,size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 972,
-    y: 612,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 1190,
-    y: 737,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
+  // kreise.push(new Kreis({
+  //   x: 750,
+  //   y: 483,
+  //   color: `black`,size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 972,
+  //   y: 612,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 1190,
+  //   y: 737,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
   blocks.push(new Block('rect', {
     x: 500,
     y: 510,
@@ -375,22 +375,22 @@ function setup() {
     },
     label: "band1"
   }))
-  kreise.push(new Kreis({
-    x: 322,
-    y: 510,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 678,
-    y: 510,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
+  // kreise.push(new Kreis({
+  //   x: 322,
+  //   y: 510,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 678,
+  //   y: 510,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
 
   //dritte Etage
   blocks.push(new Block('rect', {
@@ -409,30 +409,30 @@ function setup() {
     },
     label: "band1"
   }))
-  kreise.push(new Kreis({
-    x: 51,
-    y: 860,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 370,
-    y: 860,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 689,
-    y: 860,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
+  // kreise.push(new Kreis({
+  //   x: 51,
+  //   y: 860,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 370,
+  //   y: 860,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 689,
+  //   y: 860,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
 
   //vierte Etage
   blocks.push(new Block('rect', {
@@ -451,30 +451,30 @@ function setup() {
     },
     label: "band1"
   }))
-  kreise.push(new Kreis({
-    x: 721,
-    y: 950,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 1040,
-    y: 950,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
-  kreise.push(new Kreis({
-    x: 1359,
-    y: 950,
-    color: `black`,
-    size: 25
-  }, {
-    isStatic: true,
-  }))
+  // kreise.push(new Kreis({
+  //   x: 721,
+  //   y: 950,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 1040,
+  //   y: 950,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
+  // kreise.push(new Kreis({
+  //   x: 1359,
+  //   y: 950,
+  //   color: `black`,
+  //   size: 25
+  // }, {
+  //   isStatic: true,
+  // }))
 
   /* Abprallbalken */
   blocks.push(new Block('rect', {
@@ -768,7 +768,7 @@ function setup() {
 
   kiste = new Block('path', {
     x: 1500,
-    y: 1020,
+    y: 1030,
     elem: 'kiste',
     scale: 1.0,
     color: 'black',
@@ -812,10 +812,11 @@ function draw() {
   kiste.show()
 
   if (imgChange > 1) {
-    image(img4, 1441, 942);
+    img4.delay(100);
+    image(img4, 1442, 950);
     img4.resize(120, 120)
   } else {
-    image(img1, 1441, 942);
+    image(img1, 1441, 950);
     img1.resize(120, 120)
   }
 
@@ -829,6 +830,28 @@ function draw() {
   img3.resize(130, 40)
 
   drawGear(0, 0, 45, 422);
+  drawGear(0, 0, 350, 296);
+  drawGear(0, 0, 635,178);
+  drawGear(0, 0, 691, 300);
+  drawGear(0, 0, 1010, 300);
+  drawGear(0, 0, 1330, 300);
+  drawGear(0, 0, 1435, 469);
+  drawGear(0, 0, 1766, 331);
+  drawGear(0, 0, 1251, 700);
+  drawGear(0, 0, 1570, 700);
+  drawGear(0, 0, 1889, 700);
+  drawGear(0, 0, 750, 483);
+  drawGear(0, 0, 972, 612);
+  drawGear(0, 0, 1190, 737);
+  drawGear(0, 0, 322, 510);
+  drawGear(0, 0, 678, 510);
+  drawGear(0, 0, 51, 860);
+  drawGear(0, 0, 370, 860);
+  drawGear(0, 0, 689, 860);
+  drawGear(0, 0, 730, 950);
+  drawGear(0, 0, 1040, 950);
+  drawGear(0, 0, 1359, 950);
+
   if (gearDirectionCW == true) {
     angleGear = angleGear + 0.1
   } else {
@@ -881,6 +904,13 @@ function drawVertices(vertices) {
   }
   endShape(CLOSE)
 }
+
+// function keyPressed(e) {
+//   // prevent scrolling of website with SPACE key
+//   if(e.keyCode == 32 && e.target == document.body) {
+//     e.preventDefault();
+//   }
+// }
 
 function keyPressed() {
   switch (keyCode) {
