@@ -4,8 +4,8 @@ let kreise = []
 let balls = []
 let collisions = []
 let band
-let bandrichtung = 0.0010
-let rundeEcken = 15
+let bandrichtung = 0.0012
+let rundeEcken = 20
 let running = 0
 let running1 = 0
 let img
@@ -118,7 +118,7 @@ function setup() {
         console.log("2")
       }
       if (pair.bodyA.label === "Formänderung" || pair.bodyB.label === "Formänderung") {
-        bandrichtung = 0.0032
+        bandrichtung = 0.003
         Matter.Body.setStatic(ball1.body, false)
         collide(pair.bodyA, pair.bodyA)
         console.log("Formänderung")
@@ -126,7 +126,7 @@ function setup() {
         running = 2
       }
       if (pair.bodyA.label === "Formänderung1" || pair.bodyB.label === "Formänderung1") {
-        bandrichtung = -0.0032
+        bandrichtung = -0.002
         Matter.Body.setStatic(ball2.body, false)
         collide(pair.bodyA, pair.bodyA)
         console.log("Formänderung1")
@@ -527,8 +527,8 @@ function setup() {
   ball = new Ball({
     x: 100,
     y: 100,
-    w: 35,
-    h: 35,
+    w: 40,
+    h: 40,
     tl: 20,
     strokeWeight: 5,
     color: 'none'
@@ -544,8 +544,8 @@ function setup() {
   ball1 = new Ball({
     x: 940,
     y: 240,
-    w: 35,
-    h: 35,
+    w: 38,
+    h: 38,
     tl: 20,
     strokeWeight: 5,
     color: 'none'
@@ -554,7 +554,7 @@ function setup() {
     restitution: 0,
     frictionAir: 0,
     chamfer: {
-      radius: 5
+      radius: 12
     },
     density: 0.002,
     label: "quadrat"
@@ -562,8 +562,8 @@ function setup() {
   ball2 = new Ball({
     x: 1500,
     y: 630,
-    w: 35,
-    h: 35,
+    w: 40,
+    h: 40,
     tl: 20,
     strokeWeight: 5,
     color: 'none'
@@ -580,8 +580,8 @@ function setup() {
   ball3 = new Ball({
     x: 340,
     y: 800,
-    w: 35,
-    h: 35,
+    w: 40,
+    h: 40,
     tl: 20,
     strokeWeight: 5,
     color: 'none'
@@ -872,9 +872,9 @@ function draw() {
   } else {
     angleGear = angleGear - 0.1
   }
-    image(img6, 80, 522)
-    image(img7, 1400, 438)
-    image(img8, 780, 41)
+    image(img6, 80, 530)
+    image(img7, 1400, 445)
+    image(img8, 780, 50)
 
     kiste.show()
     if (imgChange > 1) {
