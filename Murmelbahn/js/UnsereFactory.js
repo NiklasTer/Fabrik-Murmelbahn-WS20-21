@@ -13,6 +13,9 @@ let img1
 let angleGear = 0
 let imgChange = 0
 let gearDirectionCW = true
+let formsound
+let formsound1
+let farbsound
 //let constraint
 function preload() {
   img = loadImage('assets/Foerderbaender.png');
@@ -26,6 +29,10 @@ function preload() {
   img8 = loadImage('assets/Formaenderung1.png')
   img9 = loadImage('assets/Perle1.png')
   img10 = loadImage('assets/Perle2.png')
+  soundFormats('mp3');
+  formsound = loadSound('assets/Form.mp3')
+  formsound1 = loadSound('assets/Form1.mp3')
+  farbsound = loadSound('assets/Farbe.mp3')
 }
 
 class Block {
