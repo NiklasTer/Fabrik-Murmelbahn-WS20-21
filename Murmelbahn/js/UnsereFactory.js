@@ -17,7 +17,8 @@ let formSound
 let formSound1
 let farbSound
 let tadaaSound
-//let constraint
+let backgroundsound
+
 function preload() {
   img = loadImage('assets/Foerderbaender.png');
   img1 = loadImage('assets/Holzbox.png');
@@ -30,6 +31,7 @@ function preload() {
   img8 = loadImage('assets/Formaenderung1.png')
   img9 = loadImage('assets/Perle1.png')
   img10 = loadImage('assets/Perle2.png')
+  img11 = loadImage('assets/Deckelhalter.png')
 
 }
 
@@ -109,6 +111,7 @@ class Ball {
 }
 
 function setup() {
+backgroundsound = loadSound('assets/backgroundsound.mp3')
 formSound = loadSound('assets/Form.mp3')
 formSound.playMode('sustain');
 formSound1 = loadSound('assets/Form1.mp3')
@@ -157,7 +160,6 @@ tadaaSound.playMode('sustain');
         running1 = 2
       }
       if (pair.bodyA.label === "DeckelTrigger" || pair.bodyB.label === "DeckelTrigger") {
-        tadaaSound.play();
         Matter.Body.setStatic(deckel.body, false)
         collide(pair.bodyA, pair.bodyA)
         console.log("Deckel")
@@ -856,7 +858,7 @@ function draw() {
   drawSprite(ball1.body, img9);
   drawSprite(ball2.body, img2);
   drawSprite(ball3.body, img10);
-
+  image(img11,1400, 714);
   deckel.show()
   drawSprite(deckel.body, img3);
   img3.resize(130, 40)
