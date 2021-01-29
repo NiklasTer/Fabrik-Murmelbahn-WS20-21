@@ -121,6 +121,7 @@ farbSound.playMode('sustain');
 tadaaSound = loadSound('assets/Tadaa.mp3')
 tadaaSound.playMode('sustain');
   engine = Matter.Engine.create()
+
   Matter.Events.on(engine, 'collisionActive', function(event) {
     //console.log("collision")
     var pairs = event.pairs
@@ -190,10 +191,9 @@ tadaaSound.playMode('sustain');
   })
 
   let canvas = createCanvas(1920, 1080)
-
   //blocks.push(new Block('circle',{ x: 300, y: 300, s:40, color: `black`}, { isStatic: true }))
 
-
+      // backgroundsound.playMode('sustain');
   // Erste Etage
   blocks.push(new Block('rect', {
     x: 340,
