@@ -693,7 +693,7 @@ tadaaSound.playMode('sustain');
     w: 1,
     h: 1,
     //strokeWeight: 5,
-    color: 'black'
+    color: 'white'
   }, {
     isStatic: true,
     restitution: 0,
@@ -716,11 +716,24 @@ tadaaSound.playMode('sustain');
   /*Stopper*/
   blocks.push(new Block('rect', {
     x: 40,
-    y: 380,
+    y: 375,
     w: 1,
     h: 1,
     //strokeWeight: 5,
-    color: 'black'
+    color: 'white'
+  }, {
+    isStatic: true,
+    restitution: 0,
+    label: "Stopper"
+  }))
+
+  blocks.push(new Block('rect', {
+    x: 670,
+    y: 225,
+    w: 1,
+    h: 1,
+    //strokeWeight: 5,
+    color: 'white'
   }, {
     isStatic: true,
     restitution: 0,
@@ -733,7 +746,7 @@ tadaaSound.playMode('sustain');
     w: 1,
     h: 1,
     //strokeWeight: 5,
-    color: 'black'
+    color: 'white'
   }, {
     isStatic: true,
     restitution: 0,
@@ -746,7 +759,33 @@ tadaaSound.playMode('sustain');
     w: 1,
     h: 1,
     //strokeWeight: 5,
-    color: 'black'
+    color: 'white'
+  }, {
+    isStatic: true,
+    restitution: 0,
+    label: "Stopper"
+  }))
+
+  blocks.push(new Block('rect', {
+    x: 1365,
+    y: 335,
+    w: 1,
+    h: 1,
+    //strokeWeight: 5,
+    color: 'white'
+  }, {
+    isStatic: true,
+    restitution: 0,
+    label: "Stopper"
+  }))
+
+  blocks.push(new Block('rect', {
+    x: 1380,
+    y: 385,
+    w: 1,
+    h: 1,
+    //strokeWeight: 5,
+    color: 'white'
   }, {
     isStatic: true,
     restitution: 0,
@@ -759,7 +798,7 @@ tadaaSound.playMode('sustain');
     w: 1,
     h: 1,
     //strokeWeight: 5,
-    color: 'black'
+    color: 'white'
   }, {
     isStatic: true,
     restitution: 0,
@@ -768,11 +807,11 @@ tadaaSound.playMode('sustain');
 
   blocks.push(new Block('rect', {
     x: 715,
-    y: 500,
+    y: 495,
     w: 1,
     h: 1,
     //strokeWeight: 5,
-    color: 'black'
+    color: 'white'
   }, {
     isStatic: true,
     restitution: 0,
@@ -785,7 +824,7 @@ tadaaSound.playMode('sustain');
     w: 1,
     h: 1,
     //strokeWeight: 5,
-    color: 'black'
+    color: 'white'
   }, {
     isStatic: true,
     restitution: 0,
@@ -793,12 +832,25 @@ tadaaSound.playMode('sustain');
   }))
 
   blocks.push(new Block('rect', {
-    x: 1410,
+    x: 1405,
     y: 950,
     w: 1,
     h: 1,
     //strokeWeight: 5,
-    color: 'black'
+    color: 'white'
+  }, {
+    isStatic: true,
+    restitution: 0,
+    label: "Stopper"
+  }))
+
+  blocks.push(new Block('rect', {
+    x: 1420,
+    y: 950,
+    w: 1,
+    h: 1,
+    //strokeWeight: 5,
+    color: 'white'
   }, {
     isStatic: true,
     restitution: 0,
