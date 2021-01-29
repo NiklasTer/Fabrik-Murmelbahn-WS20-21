@@ -15,12 +15,17 @@ let imgChange = 0
 let gearDirectionCW = true
 //let constraint
 function preload() {
-  //img = loadImage('assets/001.png');
+  img = loadImage('assets/Foerderbaender.png');
   img1 = loadImage('assets/Holzbox.png');
   img2 = loadImage('assets/Perle.png');
-  img3 = loadImage('assets/Holzbox_Deckel.png')
-  img4 = loadImage('assets/Holzbox-end.png')
+  img3 = loadImage('assets/Deckel.png')
+  img4 = loadImage('assets/BoxStempel.png')
   img5 = loadImage('assets/Zahnrad.png')
+  img6 = loadImage('assets/Farbaenderung.png')
+  img7 = loadImage('assets/Formaenderung2.png')
+  img8 = loadImage('assets/Formaenderung1.png')
+  img9 = loadImage('assets/Perle1.png')
+  img10 = loadImage('assets/Perle2.png')
 }
 
 class Block {
@@ -121,7 +126,7 @@ function setup() {
         running = 2
       }
       if (pair.bodyA.label === "Formänderung1" || pair.bodyB.label === "Formänderung1") {
-        bandrichtung = 0.0032
+        bandrichtung = -0.0032
         Matter.Body.setStatic(ball2.body, false)
         collide(pair.bodyA, pair.bodyA)
         console.log("Formänderung1")
@@ -189,10 +194,10 @@ function setup() {
     label: "band1"
   }))
   // kreise.push(new Kreis({
-  //   x: 350,
-  //   y: 296,
+  //   x: 1214,
+  //   y: 715,
   //   color: `black`,
-  //   size: 25
+  //   size: 10
   // }, {
   //   isStatic: true,
   // }))
@@ -522,11 +527,11 @@ function setup() {
   ball = new Ball({
     x: 100,
     y: 100,
-    w: 30,
-    h: 30,
+    w: 35,
+    h: 35,
     tl: 20,
     strokeWeight: 5,
-    color: 'red'
+    color: 'none'
   }, {
     isStatic: false,
     restitution: 0,
@@ -539,41 +544,47 @@ function setup() {
   ball1 = new Ball({
     x: 940,
     y: 240,
-    w: 30,
-    h: 30,
+    w: 35,
+    h: 35,
     tl: 20,
     strokeWeight: 5,
-    color: 'red'
+    color: 'none'
   }, {
     isStatic: true,
     restitution: 0,
     frictionAir: 0,
+    chamfer: {
+      radius: 5
+    },
     density: 0.002,
     label: "quadrat"
   })
   ball2 = new Ball({
     x: 1500,
     y: 630,
-    w: 30,
-    h: 30,
+    w: 35,
+    h: 35,
     tl: 20,
     strokeWeight: 5,
-    color: 'red'
+    color: 'none'
   }, {
     isStatic: true,
     restitution: 0,
     frictionAir: 0,
+    chamfer: {
+      radius: rundeEcken
+    },
     density: 0.002,
     label: "quadrat"
   })
   ball3 = new Ball({
     x: 340,
     y: 800,
-    w: 30,
-    h: 30,
+    w: 35,
+    h: 35,
     tl: 20,
     strokeWeight: 5,
-    color: 'green'
+    color: 'none'
   }, {
     isStatic: true,
     restitution: 0,
@@ -650,8 +661,8 @@ function setup() {
   blocks.push(new Block('rect', {
     x: 320,
     y: 820,
-    w: 10,
-    h: 10,
+    w: 1,
+    h: 1,
     strokeWeight: 5,
     color: 'black'
   }, {
@@ -659,7 +670,18 @@ function setup() {
     restitution: 0,
     label: "Stopper"
   }))
-
+  blocks.push(new Block('rect', {
+    x: 1214,
+    y: 715,
+    w: 1,
+    h: 1,
+    //strokeWeight: 5,
+    color: 'black'
+  }, {
+    isStatic: true,
+    restitution: 0,
+    label: "Stopper"
+  }))
 
   blocks.push(new Block('rect', {
     x: 1500,
@@ -801,31 +823,24 @@ function draw() {
   blocks.forEach((block, i) => {
     block.show()
   });
+  //image(img,20, 156);
   ball.show()
   ball1.show()
   ball2.show()
   ball3.show()
-  deckel.show()
   kreise.forEach((kreis, i) => {
     kreis.show()
   });
-  kiste.show()
-
-  if (imgChange > 1) {
-    img4.delay(100);
-    image(img4, 1442, 950);
-    img4.resize(120, 120)
-  } else {
-    image(img1, 1441, 950);
-    img1.resize(120, 120)
-  }
 
 
 
 
   drawSprite(ball.body, img2);
-  img2.resize(32, 32)
+  drawSprite(ball1.body, img9);
+  drawSprite(ball2.body, img2);
+  drawSprite(ball3.body, img10);
 
+  deckel.show()
   drawSprite(deckel.body, img3);
   img3.resize(130, 40)
 
@@ -857,6 +872,20 @@ function draw() {
   } else {
     angleGear = angleGear - 0.1
   }
+    image(img6, 80, 522)
+    image(img7, 1400, 438)
+    image(img8, 780, 41)
+
+    kiste.show()
+    if (imgChange > 1) {
+      img4.delay(100);
+      image(img4, 1442, 950);
+      // img4.resize(120, 120)
+    } else {
+      image(img1, 1441, 950);
+      // img1.resize(120, 120)
+    }
+
 }
 
 function drawGear(x, y, a, b) {
