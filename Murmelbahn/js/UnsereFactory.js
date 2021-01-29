@@ -13,9 +13,10 @@ let img1
 let angleGear = 0
 let imgChange = 0
 let gearDirectionCW = true
-let formsound
-let formsound1
-let farbsound
+let formSound
+let formSound1
+let farbSound
+let tadaaSound
 //let constraint
 function preload() {
   img = loadImage('assets/Foerderbaender.png');
@@ -29,10 +30,7 @@ function preload() {
   img8 = loadImage('assets/Formaenderung1.png')
   img9 = loadImage('assets/Perle1.png')
   img10 = loadImage('assets/Perle2.png')
-  soundFormats('mp3');
-  formsound = loadSound('assets/Form.mp3')
-  formsound1 = loadSound('assets/Form1.mp3')
-  farbsound = loadSound('assets/Farbe.mp3')
+
 }
 
 class Block {
@@ -111,6 +109,14 @@ class Ball {
 }
 
 function setup() {
+formSound = loadSound('assets/Form.mp3')
+formSound.playMode('sustain');
+formSound1 = loadSound('assets/Form1.mp3')
+formSound1.playMode('sustain');
+farbSound = loadSound('assets/Farbe.mp3')
+farbSound.playMode('sustain');
+tadaaSound = loadSound('assets/Tadaa.mp3')
+tadaaSound.playMode('sustain');
   engine = Matter.Engine.create()
   Matter.Events.on(engine, 'collisionActive', function(event) {
     //console.log("collision")
@@ -125,6 +131,7 @@ function setup() {
         console.log("2")
       }
       if (pair.bodyA.label === "Formänderung" || pair.bodyB.label === "Formänderung") {
+        formSound.play();
         bandrichtung = 0.003
         Matter.Body.setStatic(ball1.body, false)
         collide(pair.bodyA, pair.bodyA)
@@ -133,6 +140,7 @@ function setup() {
         running = 2
       }
       if (pair.bodyA.label === "Formänderung1" || pair.bodyB.label === "Formänderung1") {
+          formSound1.play();
         bandrichtung = -0.002
         Matter.Body.setStatic(ball2.body, false)
         collide(pair.bodyA, pair.bodyA)
@@ -141,6 +149,7 @@ function setup() {
         running = 2
       }
       if (pair.bodyA.label === "Farbänderung" || pair.bodyB.label === "Farbänderung") {
+          farbSound.play();
         Matter.Body.setStatic(ball3.body, false)
         collide(pair.bodyA, pair.bodyA)
         console.log("Farbänderung")
@@ -148,6 +157,7 @@ function setup() {
         running1 = 2
       }
       if (pair.bodyA.label === "DeckelTrigger" || pair.bodyB.label === "DeckelTrigger") {
+        tadaaSound.play();
         Matter.Body.setStatic(deckel.body, false)
         collide(pair.bodyA, pair.bodyA)
         console.log("Deckel")
