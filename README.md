@@ -9,6 +9,10 @@ Test
 
 ## Team
 A Team of 4 students of the HfG Schwäbisch Gmünd
+Evi Waldemaier
+Sarah Franke
+Jakob Seeger
+Niklas Terodde
 
 ## Setup & Requirements
 This project requires a computer and internet.
