@@ -163,6 +163,7 @@ tadaaSound.playMode('sustain');
       if (pair.bodyA.label === "DeckelTrigger" || pair.bodyB.label === "DeckelTrigger") {
         Matter.Body.setStatic(deckel.body, false)
         collide(pair.bodyA, pair.bodyA)
+        tadaaSound.play()
         console.log("Deckel")
         Matter.World.remove(engine.world, [pair.bodyA])
         running1 = 2
@@ -545,7 +546,7 @@ tadaaSound.playMode('sustain');
 
   ball = new Ball({
     x: 100,
-    y: 100,
+    y: 0,
     w: 40,
     h: 40,
     tl: 20,
@@ -873,18 +874,6 @@ tadaaSound.playMode('sustain');
     isStatic: true,
     friction: 0.0
   })
-  // blocks.push(new Block('path', { x: 350, y: 300, elem: 'zahnrad', scale: 0.3, color: 'black', force: { x: 0.0, y: 0.0 } }, { isStatic: false, frictionAir: 0.0 }))
-  //blocks.push(new Block('path', { x: 500, y: 300, elem: 'band', scale: 1.2, color: 'black'}, { isStatic: true, restitution: 0, frictionAir: 0.0, label: "band1" }))
-
-  // let body = blocks[4].body
-  // constraint = Matter.Constraint.create({
-  //         bodyA: body,
-  //         pointB: { x: body.position.x , y: body.position.y }
-  //       });
-  //       Matter.World.add(engine.world, [constraint]);
-  //
-  //       Matter.Body.applyForce(body,{x: 0, y: 0}, {x: 0.00002, y: 0.0})
-
   Matter.Engine.run(engine)
 }
 
@@ -951,10 +940,8 @@ function draw() {
     if (imgChange > 1) {
       img4.delay(100);
       image(img4, 1442, 950);
-      // img4.resize(120, 120)
     } else {
       image(img1, 1441, 950);
-      // img1.resize(120, 120)
     }
 
 }
@@ -1005,21 +992,14 @@ function drawVertices(vertices) {
   endShape(CLOSE)
 }
 
-// function keyPressed(e) {
-//   // prevent scrolling of website with SPACE key
-//   if(e.keyCode == 32 && e.target == document.body) {
-//     e.preventDefault();
-//   }
-// }
 
 function keyPressed() {
   switch (keyCode) {
     case 32:
       bandrichtung = bandrichtung * -1
       gearDirectionCW = !gearDirectionCW
-      //console.log('Leertaste', gearDirectionCW)
       break;
     default:
-      //console.log("KeyCode ist: " + keyCode)
+
   }
 }
