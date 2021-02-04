@@ -111,6 +111,7 @@ class Ball {
 }
 
 function setup() {
+  masterVolume(0.2);
 backgroundsound = loadSound('assets/backgroundsound.mp3')
 formSound = loadSound('assets/Form.mp3')
 formSound.playMode('sustain');
