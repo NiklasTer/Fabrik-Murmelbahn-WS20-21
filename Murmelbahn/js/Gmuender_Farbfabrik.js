@@ -509,8 +509,8 @@ tadaaSound.playMode('sustain');
     w: 10,
     h: 200,
     tl: 20,
-    strokeWeight: 5,
-    color: `white`
+    //strokeWeight: 5,
+    color: `#afafaf`
   }, {
     isStatic: true,
     angle: PI / 12,
@@ -522,8 +522,8 @@ tadaaSound.playMode('sustain');
     w: 10,
     h: 50,
     tl: 20,
-    strokeWeight: 5,
-    color: `white`
+    //strokeWeight: 5,
+    color: `#bcbcbc`
   }, {
     isStatic: true,
     angle: -PI / 12,
